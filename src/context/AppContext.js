@@ -57,13 +57,17 @@ export const AppReducer = (state, action) => {
                 ...state,
                 budget
             };
-        case 'SET_BUDGET':
-            action.type = "DONE";
-            state.budget = action.payload;
-
-            return {
-                ...state,
-            };
+            case 'SET_BUDGET':
+                let newBudgets = state.budgets.map(budget => ({
+                    ...budget,
+                    budget: budget.budget + (action.payload.budget * 10) // Increment by 10
+                }));
+                action.type = "DONE";
+    
+                return {
+                    ...state,
+                    budgets: newBudgets
+                };
         case 'CHG_CURRENCY':
             action.type = "DONE";
             state.currency = action.payload;

@@ -1,22 +1,34 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
-const Budget = () => {
-    
 
-    const [setBudget] = useState('');
-    const { budget } = useContext(AppContext) + setBudget;
+const Budget = () => {
+    const { budget, dispatch } = useContext(AppContext);
+    const [inputBudget, setInputBudget] = useState(budget); // Initialize with the context budget value
+
+    const handleBudgetChange = (event) => {
+        const Budget = {
+            cost: 10,
+        };
+
+        dispatch({
+            type: 'SET_BUDGET',
+            payload: Budget
+        });
 
     return (
         <div className='alert alert-secondary'>
-            <span>Budget:<input
-                        required='required'
-                        type='number'
-                        id='budget'
-                        value={budget}
-                        style={{ marginLeft: '2rem' , size: 10}}
-                        onChange={(event) => setBudget(event.target.value)}>
-                        </input> </span>
+            <span>Budget: 
+                <input
+                    required
+                    type='number'
+                    id='budget'
+                    value={inputBudget}
+                    style={{ marginLeft: '2rem' }}
+                    onChange={handleBudgetChange}
+                />
+            </span>
         </div>
     );
 };
+
 export default Budget;
