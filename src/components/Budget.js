@@ -3,35 +3,37 @@ import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
     const { budget, dispatch } = useContext(AppContext);
-    const [inputBudget, setInputBudget] = useState(budget); // Initialize with the context budget value
+    const [newBudget, setnewBudget] = useState(budget); // Initialize with the context budget value
 
-    const handleBudgetChange = (event) => {
-        const Budget = {
-            cost: 10,
-        };
-
+    const handleBudgetChange = (setnewBudget) => {
+        const updatedBudget = [...newBudget].map((newBudget) =>{
+            if (newBudget !== setnewBudget){
+                newBudget.number = setnewBudget;
+            
+            }
+            return updatedBudget;
+        });
         dispatch({
             type: 'SET_BUDGET',
-            payload: Budget
+            payload: newBudget
         });
-
-    return (
+    };
+    
         <div className='alert alert-secondary'>
             <span>Budget: 
                 <input
-                    min= "2000"
-                    max= "20000"
+                    
                     step= "10"
                     required
                     type='number'
                     id='budget'
-                    value={inputBudget}
+                    value={setnewBudget}
                     style={{ marginLeft: '2rem' }}
-                    onChange={handleBudgetChange}
+                    onChange={handleBudgetChange()}
                 />
             </span>
         </div>
-    );
+    
 };
 
 export default Budget;
