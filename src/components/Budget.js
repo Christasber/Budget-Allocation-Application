@@ -19,6 +19,9 @@ const Budget = () => {
         <div className='alert alert-secondary'>
             <span>Budget: 
                 <input
+                    min= "2000"
+                    max= "20000"
+                    step= "10"
                     required
                     type='number'
                     id='budget'
