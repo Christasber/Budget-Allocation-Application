@@ -58,29 +58,23 @@ export const AppReducer = (state, action) => {
                 budget
             };
             case 'SET_BUDGET':
-                let newBudget = state.budget.reduce(
-                (previousBud, currentBud) => {
-                    return previousBud, currentBud},0
-                );
-                }
-                
                 action.type = "DONE";
+                state.budget = action.payload;
     
                 return {
                     ...state,
-                    budgets: newBudgets
                 };
-            ;}
-             case 'CHG_CURRENCY':
-        // Fixed CHG_CURRENCY case block
-                 return {
-            ...state,
-            currency: action.payload
-        };
-    default:
-        return state;
+            case 'CHG_CURRENCY':
+                action.type = "DONE";
+                state.currency = action.payload;
+                return {
+                    ...state
+                }
+    
+            default:
+                return state;
+        }
     };
-};
 
 // 1. Sets the initial state when the app loads
 const initialState = {

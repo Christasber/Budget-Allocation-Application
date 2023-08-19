@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-    const { budget, dispatch } = useContext(AppContext); // Get budget and dispatch from context
+    const { budget, dispatch, currency } = useContext(AppContext); // Get budget and dispatch from context
 
     function handleBudgetChange(event) {
         const newBudget = parseInt(event.target.value); // Parse the input value to an integer
@@ -21,7 +21,7 @@ const Budget = () => {
     return (
         <div className='alert alert-secondary'>
             <span>
-                Budget: 
+            <label for ="budget">Budget: {currency}</label>
                 <input
                     step="10"
                     required
