@@ -43,33 +43,32 @@ const ExpenseItem = (props) => {
         <td>{currency}{props.cost}</td>
         <td><button style={{
               background: "green",
-              textAlign: 'center',
-              width: "3rem",
-              height: '3rem',
+              width: "2.5rem",
+              height: '2.5rem',
               borderRadius: '50%',
-              display: 'inline-flex',
-              flexDirection: 'column',
+              display: 'flex', 
               justifyContent: 'center',
-              alignItems: 'center',
               color: 'white',
-              fontWeight: '900',
-              fontSize: "2.8rem",
-              border: 'none',
-              textDecoration: 'none'}}  onClick={event=> increaseAllocation(props.name)}>+</button></td>
-        <td><button style={{
-              background: "red",
               textAlign: 'center',
-              width: "3rem",
-              height: '3rem',
-              borderRadius: '50%',
-              display: 'inline-flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              color: 'white',
               fontWeight: '900',
               fontSize: "2rem",
               border: 'none',
+              lineHeight:'2rem',
+              
+              textDecoration: 'none'}}  onClick={event=> increaseAllocation(props.name)}>+</button></td>
+        <td><button style={{
+              background: "red",
+              width: "2.5rem",
+              height: '2.5rem',
+              borderRadius: '50%',
+              display: 'flex', 
+              justifyContent: 'center',
+              color: 'white',
+              textAlign: 'center',
+              fontWeight: '900',
+              fontSize: "2rem",
+              border: 'none',
+              lineHeight:'2rem',
               textDecoration: 'none'}}  onClick={event=> decreaseAllocation(props.name)}>-</button></td>
         <td><TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete></td>
         </tr>
