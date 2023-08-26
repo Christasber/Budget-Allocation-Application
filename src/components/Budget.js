@@ -28,7 +28,7 @@ const Budget = () => {
                     type='number'
                     id='budget'
                     value={budget}
-                    style={{ marginLeft: '2rem' }}
+                    
                     onChange={handleBudgetChange} // Use the function reference
                 />
             </span>
